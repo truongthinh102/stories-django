@@ -25,6 +25,7 @@ def index(request):
 
     most_popular = stories[:4]
 
+
     return render(request, 'stories/index.html', {
         'newest_1': newest_1,
         'new_4': new_4,

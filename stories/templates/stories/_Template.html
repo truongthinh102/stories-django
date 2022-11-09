@@ -212,14 +212,17 @@
             </div>
             <div class="row justify-content-center pt-2 pb-4">
                 <div class="col-12 col-md-8 col-lg-7 ">
-                    <div class="input-group">
-                        <span class="input-group-addon fh5co_footer_text_box" id="basic-addon1"><i
-                                class="fa fa-envelope"></i></span>
-                        <input type="text" class="form-control fh5co_footer_text_box" placeholder="Enter your email..."
-                            aria-describedby="basic-addon1">
-                        <a href="#" class="input-group-addon fh5co_footer_subcribe" id="basic-addon12"> <i
-                                class="fa fa-paper-plane-o"></i>&nbsp;&nbsp;Subscribe</a>
-                    </div>
+                    <form method="post" action="{% url 'stories:index' %}">
+                        {% csrf_token %}
+                        <div class="input-group">
+                            <span class="input-group-addon fh5co_footer_text_box" id="basic-addon1">
+                                <i class="fa fa-envelope"></i></span>
+                                <input type="text" class="form-control fh5co_footer_text_box" name="emailfooter" placeholder="Enter your email..." aria-describedby="basic-addon1">
+                                <button type="submit" name="btnSubscribe" class="input-group-addon fh5co_footer_subcribe" id="basic-addon12"> 
+                                    <i class="fa fa-paper-plane-o"></i>&nbsp;&nbsp;Subscribe
+                                </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -230,10 +233,11 @@
                 <div class="col-12 col-md-6 py-4 Reserved"> © Copyright 2018, All rights reserved. Design by <a
                         href="https://freehtml5.co" title="Free HTML5 Bootstrap templates">FreeHTML5.co</a>. </div>
                 <div class="col-12 col-md-6 spdp_right py-4">
-                    <a href="#" class="footer_last_part_menu">Home</a>
-                    <a href="Contact_us.html" class="footer_last_part_menu">About</a>
-                    <a href="Contact_us.html" class="footer_last_part_menu">Contact</a>
-                    <a href="blog.html" class="footer_last_part_menu">Latest News</a>
+                    <a href="{% url 'stories:index' %}" class="footer_last_part_menu">Home</a>
+                    <a href="{% url 'stories:contact' %}" class="footer_last_part_menu">About</a>
+                    <a href="{% url 'stories:category' 1 %}" class="footer_last_part_menu">Young Child Stories</a>
+                    <a href="{% url 'stories:category' 2 %}" class="footer_last_part_menu">Old Child Stories</a>
+                    <a href="{% url 'stories:rss' %}" class="footer_last_part_menu">RSS</a>
                 </div>
             </div>
         </div>
