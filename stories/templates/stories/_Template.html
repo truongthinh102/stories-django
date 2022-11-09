@@ -1,0 +1,262 @@
+{% load static %}
+<!DOCTYPE html>
+<!--
+	24 News by FreeHTML5.co
+	Twitter: https://twitter.com/fh5co
+	Facebook: https://fb.com/fh5co
+	URL: https://freehtml5.co
+-->
+<html lang="en" class="no-js">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title_page %}{% endblock %}</title>
+    <link href="{% static 'stories/css/media_query.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'stories/css/bootstrap.css' %}" rel="stylesheet" type="text/css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="{% static 'stories/css/animate.css' %}" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link href="{% static 'stories/css/owl.carousel.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'stories/css/owl.theme.default.css' %}" rel="stylesheet" type="text/css" />
+    <!-- Bootstrap CSS -->
+    <link href="{% static 'stories/css/style_1.css' %}" rel="stylesheet" type="text/css" />
+    <!-- Modernizr JS -->
+    <script src="{% static 'stories/js/modernizr-3.5.0.min.js' %}"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        jQuery(function ($) {
+            let path = window.location.href;  // http://127.0.0.1:8000/category/1/
+            $('.mn a').each(function () {
+                if (this.href === path){
+                    $(this).parent().addClass('active')
+                }
+            });
+        });
+    </script>
+
+    <script>
+        function display_ct6() {
+            var x = new Date()
+            var ampm = x.getHours() >= 12 ? ' PM' : ' AM';
+            hours = x.getHours() % 12;
+            hours = hours ? hours : 12;
+            var x1 = x.getMonth() + 1 + "/" + x.getDate() + "/" + x.getFullYear();
+            x1 = x1 + " - " + hours + ":" + x.getMinutes() + ":" + x.getSeconds() + " " + ampm;
+            document.getElementById('ct6').innerHTML = x1;
+            display_c6();
+        }
+
+        function display_c6() {
+            var refresh = 1000; // Refresh rate in milli seconds
+            mytime = setTimeout('display_ct6()', refresh)
+        }
+        display_c6();
+    </script>
+
+</head>
+
+<body>
+    <div class="container-fluid fh5co_header_bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 fh5co_mediya_center">
+                    <a href="{% url 'stories:index' %}" class="color_fff fh5co_mediya_setting">
+                        <i class="fa fa-clock-o"> <span id='ct6' style="text-decoration: none !important;"></span></i>
+                    </a>
+                    <div class="d-inline-block fh5co_trading_posotion_relative"><a href="{% url 'stories:contact' %}"
+                            class="treding_btn">Page Author</a>
+                        <div class="fh5co_treding_position_absolute"></div>
+                    </div>
+                    <a href="mailto:truongthinh.it.dtm@gmail.com" class="color_fff fh5co_mediya_setting" style="text-decoration: none !important;">
+                        <i class="fa fa-envelope-o"></i>&nbsp;&nbsp; truongthinh.it.dtm@gmail.com&nbsp;&nbsp;&nbsp;&nbsp;
+                    </a>
+                    <a href="mailto:truongthinh.it.dtm@gmail.com" class="color_fff fh5co_mediya_setting" style="text-decoration: none !important;">
+                        <i class="fa fa-phone"></i>&nbsp;&nbsp;(+84) 906 970 070&nbsp;&nbsp;&nbsp;&nbsp;
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-3 fh5co_padding_menu">
+                    <img src="{% static 'stories/images/logo.png' %}" alt="img" class="fh5co_logo_width" />
+                </div>
+                <div class="col-12 col-md-5 align-self-center fh5co_mediya_right">
+                    <div class="text-center d-inline-block">
+                        <a class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-linkedin"></i></div></a>
+                    </div>
+                    <div class="text-center d-inline-block">
+                        <a class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-google-plus"></i></div></a>
+                    </div>
+                    <div class="text-center d-inline-block">
+                        <a href="https://twitter.com/fh5co" target="_blank" class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-twitter"></i></div></a>
+                    </div>
+                    <div class="text-center d-inline-block">
+                        <a href="https://fb.com/fh5co" target="_blank" class="fh5co_display_table"><div class="fh5co_verticle_middle"><i class="fa fa-facebook"></i></div></a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+    
+                <div class="col-12 col-md-4 align-self-center fh5co_mediya_center">
+                    <form class="form-inline" method="get" action="{% url 'stories:search' %}">
+                        <div class="form-group mx-sm-2 mb-2">
+                            <input type="text" class="form-control" placeholder="Input the keyword..." name="keyword" autocomplete="off" value="">
+                        </div>
+                        <button type="submit" class="btn btn-secondary mb-2"><i class="fa fa-search"></i></button>
+                    </form>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-faded fh5co_padd_mediya padding_786">
+        <div class="container padding_786">
+            <nav class="navbar navbar-toggleable-md navbar-light ">
+                <button class="navbar-toggler navbar-toggler-right mt-3" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation"><span class="fa fa-bars"></span></button>
+                <a class="navbar-brand" href="#"><img src="{% static 'stories/images/logo.png' %}" alt="img"
+                        class="mobile_logo_width" /></a>
+                        
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item mn">
+                            <a class="nav-link" href="{% url 'stories:index' %}">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item mn">
+                            <a class="nav-link" href="{% url 'stories:category' 1 %}">Young Children<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item mn">
+                            <a class="nav-link" href="{% url 'stories:category' 2 %}">Older Children<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item mn">
+                            <a class="nav-link" href="{% url 'stories:story' 11 %}">Story <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item mn">
+                            <a class="nav-link" href="{% url 'stories:rss' %}">RSS <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item mn">
+                            <a class="nav-link" href="{% url 'stories:contact' %}">Contact <span
+                                    class="sr-only">(current)</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+    
+    <!-- Content  -->
+    {% block content %}
+    {% endblock %}
+    <!-- End content  -->
+
+    
+    <div class="container-fluid fh5co_footer_bg pb-3">
+        <div class="container animate-box">
+            <div class="row">
+                <div class="col-12 spdp_right py-5"><img src="{% static 'stories/images/white_logo.png' %}" alt="img"
+                        class="footer_logo" />
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-12 col-md-4 col-lg-4">
+                    <div class="footer_main_title py-3"> About</div>
+                    <div class="footer_sub_about pb-3"> This website is designed specifically for children 
+                        who love reading and learning good things from the books. Website references data from a number 
+                        of sites like: https://www.freechildrenstories.com/, http://www.magickeys.com/books/
+                    </div>
+                    <div class="footer_mediya_icon">
+                        <div class="text-center d-inline-block"><a class="fh5co_display_table_footer">
+                                <div class="fh5co_verticle_middle"><i class="fa fa-linkedin"></i></div>
+                            </a></div>
+                        <div class="text-center d-inline-block"><a class="fh5co_display_table_footer">
+                                <div class="fh5co_verticle_middle"><i class="fa fa-google-plus"></i></div>
+                            </a></div>
+                        <div class="text-center d-inline-block"><a class="fh5co_display_table_footer">
+                                <div class="fh5co_verticle_middle"><i class="fa fa-twitter"></i></div>
+                            </a></div>
+                        <div class="text-center d-inline-block"><a class="fh5co_display_table_footer">
+                                <div class="fh5co_verticle_middle"><i class="fa fa-facebook"></i></div>
+                            </a></div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 col-lg-2">
+                    <div class="footer_main_title py-3"> Category</div>
+                    <ul class="footer_menu">
+                        {% for category in categories %}
+                        <li><a href="{% url 'stories:category' category.pk %}" class=""><i class="fa fa-angle-right"></i>&nbsp;&nbsp; {{ category.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="col-12 col-md-5 col-lg-3 position_footer_relative">
+                    <div class="footer_main_title py-3"> Most Popular Stories </div>
+                    {% for newstory in most_popular %}
+                    <div class="footer_makes_sub_font"> {{ newstory.public_day }}</div>
+                    <a href="{% url 'stories:story' newstory.pk %}" class="footer_post pb-4">{{ newstory.name }}</a>
+                    {% endfor %}
+                    <div class="footer_position_absolute"><img src="{% static 'stories/images/footer_sub_tipik.png' %}" alt="img"
+                            class="width_footer_sub_img" /></div>
+                </div>
+                <div class="col-12 col-md-12 col-lg-3 ">
+                    <div class="footer_main_title py-3"> Newest Stories </div>
+                    {% for newstory in most_popular %}
+                    <a href="{% url 'stories:story' newstory.pk %}" class="footer_img_post_6"><img src="{{ newstory.image.url }}" alt="{{ newstory.name }}" /></a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="row justify-content-center pt-2 pb-4">
+                <div class="col-12 col-md-8 col-lg-7 ">
+                    <div class="input-group">
+                        <span class="input-group-addon fh5co_footer_text_box" id="basic-addon1"><i
+                                class="fa fa-envelope"></i></span>
+                        <input type="text" class="form-control fh5co_footer_text_box" placeholder="Enter your email..."
+                            aria-describedby="basic-addon1">
+                        <a href="#" class="input-group-addon fh5co_footer_subcribe" id="basic-addon12"> <i
+                                class="fa fa-paper-plane-o"></i>&nbsp;&nbsp;Subscribe</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid fh5co_footer_right_reserved">
+        <div class="container">
+            <div class="row  ">
+                <div class="col-12 col-md-6 py-4 Reserved"> © Copyright 2018, All rights reserved. Design by <a
+                        href="https://freehtml5.co" title="Free HTML5 Bootstrap templates">FreeHTML5.co</a>. </div>
+                <div class="col-12 col-md-6 spdp_right py-4">
+                    <a href="#" class="footer_last_part_menu">Home</a>
+                    <a href="Contact_us.html" class="footer_last_part_menu">About</a>
+                    <a href="Contact_us.html" class="footer_last_part_menu">Contact</a>
+                    <a href="blog.html" class="footer_last_part_menu">Latest News</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="gototop js-top">
+        <a href="#" class="js-gotop"><i class="fa fa-arrow-up"></i></a>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="{% static 'stories/js/owl.carousel.min.js' %}"></script>
+    <!--<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+        integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+        integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+        crossorigin="anonymous"></script>
+    <!-- Waypoints -->
+    <script src="{% static 'stories/js/jquery.waypoints.min.js' %}"></script>
+    <!-- Main -->
+    <script src="{% static 'stories/js/main.js' %}"></script>
+
+</body>
+
+</html>

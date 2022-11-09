@@ -1,0 +1,197 @@
+{% extends 'stories/_Template.html' %}
+{% block title_page %}Home | Stories for Children{% endblock %}
+
+{% block content %}
+<div class="container-fluid paddding mb-5">
+    <div class="row mx-0">
+        <!--<div class="col-md-6">
+            {{ visits }}
+        </div>-->
+        <div class="col-md-6 col-12 paddding animate-box" data-animate-effect="fadeIn">
+            <div class="fh5co_suceefh5co_height">
+                <img src="{{ newest_1.image.url }}" alt="{{ newest_1.name }}"/>
+                <div class="fh5co_suceefh5co_height_position_absolute"></div>
+                <div class="fh5co_suceefh5co_height_position_absolute_font">
+                    <div class=""><a href="{% url 'stories:story' newest_1.pk %}" class="color_fff"> <i class="fa fa-clock-o"></i>&nbsp;&nbsp;{{newest_1.public_day}}</a>
+                    </div>
+                    <div class=""><a href="{% url 'stories:story' newest_1.pk %}" class="fh5co_good_font">{{newest_1.name}}</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                {% for new4 in new_4 %}
+                <div class="col-md-6 col-6 paddding animate-box" data-animate-effect="fadeIn">
+                    <div class="fh5co_suceefh5co_height_2"><img src="{{ new4.image.url }}" alt="{{ new4.name }}" />
+                        <div class="fh5co_suceefh5co_height_position_absolute"></div>
+                        <div class="fh5co_suceefh5co_height_position_absolute_font_2">
+                            <div class=""><a href="{% url 'stories:story' new4.pk %}" class="color_fff"> <i class="fa fa-clock-o"></i>&nbsp;&nbsp;{{new4.public_day}} </a></div>
+                            <div class=""><a href="{% url 'stories:story' new4.pk %}" class="fh5co_good_font_2">{{ new4.name }}</a></div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid pt-3">
+    <div class="container animate-box" data-animate-effect="fadeIn">
+        <div>
+            <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Young Children</div>
+        </div>
+        <div class="owl-carousel owl-theme js" id="slider1">
+            {% for youngstories in young_stories %}
+            <div class="item px-2">
+
+                <div class="fh5co_latest_trading_img_position_relative">
+                    <div class="fh5co_latest_trading_img"><img src="{{ youngstories.image.url }}"
+                            alt="{{ youngstories.name }}" class="fh5co_img_special_relative" /></div>
+                    <div class="fh5co_latest_trading_img_position_absolute"></div>
+                    <div class="fh5co_latest_trading_img_position_absolute_1">
+                        <a href="{% url 'stories:story' youngstories.pk %}" class="text-white"> {{youngstories.name}}
+                        </a>
+                        <div class="fh5co_latest_trading_date_and_name_color"> {{ youngstories.author }} - {{youngstories.public_day}}</div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+<div class="container-fluid pb-4 pt-5">
+    <div class="container animate-box">
+        <div>
+            <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Older Children</div>
+        </div>
+        <div class="owl-carousel owl-theme" id="slider2">
+            {%for oldstories in older_stories%}
+            <div class="item px-2">
+                <div class="fh5co_hover_news_img">
+                    <div class="fh5co_news_img"><img src="{{ oldstories.image.url }}" alt="{{ oldstories.name }}" />
+                    </div>
+                    <div>
+                        <a href="{% url 'stories:story' oldstories.pk %}" class="d-block fh5co_small_post_heading"><span
+                                class="">{{ oldstories.name }}</span></a>
+                        <div class="c_g"><i class="fa fa-clock-o"></i>{{ oldstories.public_day }}</div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<div class="container-fluid fh5co_video_news_bg pb-4">
+    <div class="container animate-box" data-animate-effect="fadeIn">
+        <div>
+            <div class="fh5co_heading fh5co_heading_border_bottom pt-5 pb-2 mb-4  text-black">Video Stories</div>
+        </div>
+        <div>
+            <div class="owl-carousel owl-theme" id="slider3">
+                <div class="item px-2">
+                    <div class="fh5co_hover_news_img">
+                        <div class="fh5co_hover_news_img_video_tag_position_relative">
+                            <div class="fh5co_news_img">
+                                <iframe id="video" width="100%" height="200" src="https://www.youtube.com/embed/lCdtSo4IV7M?rel=0&amp;showinfo=0&amp;autoplay=1" frameborder="0" allowfullscreen></iframe>
+                            </div>
+                            <div class="fh5co_hover_news_img_video_tag_position_absolute fh5co_hide">
+                                <img src="images/ariel-lustre-208615.jpg" alt="" />
+                            </div>
+                            <div class="fh5co_hover_news_img_video_tag_position_absolute_1 fh5co_hide" id="play-video">
+                                <div class="fh5co_hover_news_img_video_tag_position_absolute_1_play_button_1">
+                                    <div class="fh5co_hover_news_img_video_tag_position_absolute_1_play_button">
+                                        <span><i class="fa fa-play"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-2">
+                            <a href="" class="d-block fh5co_small_post_heading fh5co_small_post_heading_1">
+                                <span class="c_g">The Stellar One</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="item px-2">
+                    <div class="fh5co_hover_news_img">
+                        <div class="fh5co_hover_news_img_video_tag_position_relative">
+                            <div class="fh5co_news_img">
+                                <iframe id="video_2" width="100%" height="200"
+                                    src="https://www.youtube.com/embed/Vh95A4iIV2U?rel=0&amp;showinfo=0&amp;autoplay=1" frameborder="0"
+                                    allowfullscreen></iframe>
+                            </div>
+                            <div class="fh5co_hover_news_img_video_tag_position_absolute fh5co_hide_2">
+                                <img src="images/39-324x235.jpg" alt="" />
+                            </div>
+                            <div class="fh5co_hover_news_img_video_tag_position_absolute_1 fh5co_hide_2"
+                                id="play-video_2">
+                                <div class="fh5co_hover_news_img_video_tag_position_absolute_1_play_button_1">
+                                    <div class="fh5co_hover_news_img_video_tag_position_absolute_1_play_button">
+                                        <span><i class="fa fa-play"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-2">
+                            <a href="" class="d-block fh5co_small_post_heading fh5co_small_post_heading_1">
+                                <span class="c_g">The Atrocious Fairytale</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="item px-2">
+                    <div class="fh5co_hover_news_img">
+                        <div class="fh5co_hover_news_img_video_tag_position_relative">
+                            <div class="fh5co_news_img">
+                                <iframe id="video_3" width="100%" height="200"
+                                    src="https://www.youtube.com/embed/0BSAAaM9Gw8?rel=0&amp;showinfo=0&amp;autoplay=1" frameborder="0"
+                                    allowfullscreen></iframe>
+                            </div>
+                            <div class="fh5co_hover_news_img_video_tag_position_absolute fh5co_hide_3">
+                                <img src="images/joe-gardner-75333.jpg" alt="" />
+                            </div>
+                            <div class="fh5co_hover_news_img_video_tag_position_absolute_1 fh5co_hide_3"
+                                id="play-video_3">
+                                <div class="fh5co_hover_news_img_video_tag_position_absolute_1_play_button_1">
+                                    <div class="fh5co_hover_news_img_video_tag_position_absolute_1_play_button">
+                                        <span><i class="fa fa-play"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-2">
+                            <a href="" class="d-block fh5co_small_post_heading fh5co_small_post_heading_1">
+                                <span class="c_g">The Great Hill</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="item px-2">
+                    <div class="fh5co_hover_news_img">
+                        <div class="fh5co_hover_news_img_video_tag_position_relative">
+                            <div class="fh5co_news_img">
+                                <iframe id="video_4" width="100%" height="200"
+                                    src="https://www.youtube.com/embed/aM9g4r9QUsM?rel=0&amp;showinfo=0" frameborder="0"
+                                    allowfullscreen></iframe>
+                            </div>
+                            <div class="fh5co_hover_news_img_video_tag_position_absolute fh5co_hide_4">
+                                <img src="images/vil-son-35490.jpg" alt="" />
+                            </div>
+                            <div class="fh5co_hover_news_img_video_tag_position_absolute_1 fh5co_hide_4"
+                                id="play-video_4">
+                                <div class="fh5co_hover_news_img_video_tag_position_absolute_1_play_button_1">
+                                    <div class="fh5co_hover_news_img_video_tag_position_absolute_1_play_button">
+                                        <span><i class="fa fa-play"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-2">
+                            <a href="" class="d-block fh5co_small_post_heading fh5co_small_post_heading_1">
+                                <span class="c_g">The top 10 best computer speakers in the market</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

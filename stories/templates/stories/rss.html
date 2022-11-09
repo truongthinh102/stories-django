@@ -1,0 +1,33 @@
+{% extends 'stories/_Template.html' %}
+{% block title_page %}RSS | Stories for Children{% endblock %}
+
+
+{% block content %}
+<div class="container-fluid pb-4 pt-4 paddding">
+    <div class="container paddding">
+        <div class="row mx-0">
+            <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
+                <div>
+                    <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">RSS</div>
+                </div>
+
+                {% for entry in entries %}
+                <div class="row pb-4">
+                    <div class="col-md-12 animate-box">
+                        <a href="{{ entry.link }}" target="_blank" class="fh5co_magna py-2">
+                            {{ entry.title }}
+                        </a> <br>
+                        <a href="{{ entry.link }}" target="_blank"
+                            class="fh5co_mini_time py-3"> {{entry.author}} - {{entry.published}}
+                        </a>
+                        <div class="fh5co_consectetur">
+                            {{ entry.summary|safe }}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
